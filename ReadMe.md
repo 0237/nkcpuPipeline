@@ -99,7 +99,7 @@ memData membefore, memafter;
 ## 3.2. 使用 C 语言实现 NK-CPU 指令流水线仿真程序
 ### 3.2.1. 模拟五段流水
 设计的总逻辑依据下图：<br>
-![](readmeImage\4.jpg)<br>
+![](readmeImage/4.jpg)<br>
 >《计算机体系结构：量化研究方法（第五版）》 P484
 
 #### 3.2.1.1. IF
@@ -149,11 +149,11 @@ CString CnkcpuPipelineDlg::IF() {
 }
 ```
 IF 段取指，利用 ID 判断分支是否成立的结果，如果分支指令成立或者是跳转指令，就将 PC 置为相应地址，这里会有一周期的延迟，所以会读入下一条指令，如果跳转到别处，这条指令就没用了，所以将控制位置 0 ，之后的操作也就不会做了。参照下图中的 IF 段：<br>
-![](readmeImage\1.jpg)<br>
+![](readmeImage/1.jpg)<br>
 >《计算机体系结构：量化研究方法（第五版）》 P484
 
 还有一点就是在 ID 段由于数据冒险会有旁路转发，其中有一种情况不能处理，也就是载入指令的目标寄存器在紧接着的下一条指令中作为源寄存器被调用，这种情况也会有一周期延迟，这需要停顿等待，其实也是将 ID 段的判断结果在这一段使用。所以我就都写在这一段里了。参照下图中的 表C-11 ：<br>
-![](readmeImage\2.jpg)<br>
+![](readmeImage/2.jpg)<br>
 >《计算机体系结构：量化研究方法（第五版）》 P481
 
 如果这两种情况均不存在，就将 PC + 4 存入 PC。
@@ -279,7 +279,7 @@ CString CnkcpuPipelineDlg::ID() {
 }
 ```
 ID 段译码和访问寄存器取数据，其实都很容易做，主要做的是旁路转发的判断比较繁琐，我基本依据书中的逻辑表编写，因为我的指令设计跟 MIPS 并不完全相同，对相应部分做了修改。逻辑如图：
-![](readmeImage\3.jpg)<br>
+![](readmeImage/3.jpg)<br>
 >《计算机体系结构：量化研究方法（第五版）》 P482
 
 #### 3.2.1.3. EX
@@ -553,15 +553,15 @@ p6: #end with a blank line
 
 # 5. 实验结果与分析
 ## 5.1. 程序界面
-![](readmeImage\5.jpg)<br>
+![](readmeImage/5.jpg)<br>
 右侧的数据可以双击更改。
-![](readmeImage\8.jpg)<br>
+![](readmeImage/8.jpg)<br>
 
 ## 5.2. 单步执行
-![](readmeImage\6.jpg)<br>
+![](readmeImage/6.jpg)<br>
 
 ## 5.3. 执行
-![](readmeImage\7.jpg)<br>
+![](readmeImage/7.jpg)<br>
 可以看到程序执行完毕一共用了 2000 多个时钟周期，右侧数据已经由大到小排序完毕。
 
 ## 5.4. 程序
