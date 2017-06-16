@@ -1,0 +1,52 @@
+		if (exbefore.IR.Left(6) == "000000"
+		    && (idbefore.IR.Left(6) == "000000" || idbefore.IR.Left(6) == "100011" || idbefore.IR.Left(6) == "101011" || idbefore.IR.Left(6) == "001000" || idbefore.IR.Left(6) == "000110")
+			&& (exbefore.IR.Mid(16,5)==idbefore.IR.Mid(6,5))) {
+			idafter.A = exbefore.ALUOutput;
+		}
+		if (exbefore.IR.Left(6) == "000000"
+			&& (idbefore.IR.Left(6) == "000000" || idbefore.IR.Left(6) == "100011" || idbefore.IR.Left(6) == "101011")
+			&& (exbefore.IR.Mid(16, 5) == idbefore.IR.Mid(11, 5))) {
+			idafter.B = exbefore.ALUOutput;
+		}
+		if (membefore.IR.Left(6) == "000000"
+			&& (idbefore.IR.Left(6) == "000000" || idbefore.IR.Left(6) == "100011" || idbefore.IR.Left(6) == "101011" || idbefore.IR.Left(6) == "001000" || idbefore.IR.Left(6) == "000110")
+			&& (membefore.IR.Mid(16, 5) == idbefore.IR.Mid(6, 5))) {
+			idafter.A = membefore.ALUOutput;
+		}
+		if (membefore.IR.Left(6) == "000000"
+			&& (idbefore.IR.Left(6) == "000000" || idbefore.IR.Left(6) == "100011" || idbefore.IR.Left(6) == "101011")
+			&& (membefore.IR.Mid(16, 5) == idbefore.IR.Mid(11, 5))) {
+			idafter.B = membefore.ALUOutput;
+		}
+
+		if ((exbefore.IR.Left(6) == "001000"|| exbefore.IR.Left(6) == "000110")
+			&& (idbefore.IR.Left(6) == "000000" || idbefore.IR.Left(6) == "100011" || idbefore.IR.Left(6) == "101011" || idbefore.IR.Left(6) == "001000" || idbefore.IR.Left(6) == "000110")
+			&& (exbefore.IR.Mid(11, 5) == idbefore.IR.Mid(6, 5))) {
+			idafter.A = exbefore.ALUOutput;
+		}
+		if ((exbefore.IR.Left(6) == "001000" || exbefore.IR.Left(6) == "000110")
+			&& (idbefore.IR.Left(6) == "000000" || idbefore.IR.Left(6) == "100011" || idbefore.IR.Left(6) == "101011")
+			&& (exbefore.IR.Mid(11, 5) == idbefore.IR.Mid(11, 5))) {
+			idafter.B = exbefore.ALUOutput;
+		}
+		if ((membefore.IR.Left(6) == "001000" || membefore.IR.Left(6) == "000110")
+			&& (idbefore.IR.Left(6) == "000000" || idbefore.IR.Left(6) == "100011" || idbefore.IR.Left(6) == "101011" || idbefore.IR.Left(6) == "001000" || idbefore.IR.Left(6) == "000110")
+			&& (membefore.IR.Mid(11, 5) == idbefore.IR.Mid(6, 5))) {
+			idafter.A = membefore.ALUOutput;
+		}
+		if ((membefore.IR.Left(6) == "001000" || membefore.IR.Left(6) == "000110")
+			&& (idbefore.IR.Left(6) == "000000" || idbefore.IR.Left(6) == "100011" || idbefore.IR.Left(6) == "101011")
+			&& (membefore.IR.Mid(11, 5) == idbefore.IR.Mid(11, 5))) {
+			idafter.B = membefore.ALUOutput;
+		}
+
+		if (membefore.IR.Left(6) == "100011"
+			&& (idbefore.IR.Left(6) == "000000" || idbefore.IR.Left(6) == "100011" || idbefore.IR.Left(6) == "101011" || idbefore.IR.Left(6) == "001000" || idbefore.IR.Left(6) == "000110")
+			&& (membefore.IR.Mid(11, 5) == idbefore.IR.Mid(6, 5))) {
+			idafter.A = membefore.ALUOutput;
+		}
+		if (membefore.IR.Left(6) == "100011"
+			&& (idbefore.IR.Left(6) == "000000" || idbefore.IR.Left(6) == "100011" || idbefore.IR.Left(6) == "101011")
+			&& (membefore.IR.Mid(11, 5) == idbefore.IR.Mid(11, 5))) {
+			idafter.B = membefore.ALUOutput;
+		}
